@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-mongodb-test1",
+  "version": "1.0.0",
+  "description": "Basic node.js with mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpakdel/nodejs-mongodb-test1.git"
+  },
+  "author": "Reza Pakdel <rpakdel@gmail.com> (https://github.com/rpakdel)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpakdel/nodejs-mongodb-test1/issues"
+  },
+  "homepage": "https://github.com/rpakdel/nodejs-mongodb-test1#readme",
+  "dependencies": {
+    "mongodb": "^2.2.20"
+  }
+}
