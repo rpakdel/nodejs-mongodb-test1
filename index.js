@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient
 
-var url = 'mongodb://localhost:27017'
+var url = 'mongodb://10.40.186.116:27017/sensors'
 
 function getRandomData() {
     return {
@@ -11,13 +11,8 @@ function getRandomData() {
 }
 
 function connect() {    
-    return new Promise((resolve, reject) => {
-        console.log("> Connecting to MongoDB.")
-        MongoClient.connect(url, (err, db) => {
-            if (err) reject(err)
-            else resolve(db)
-        })
-    })
+  console.log("> Connecting to MongoDB.")
+  return MongoClient.connect(url)
 }
 
 function getDataCollection(db) {
@@ -25,25 +20,15 @@ function getDataCollection(db) {
 }
 
 function insert(db, data) {    
-    return new Promise((resolve, reject) => {
-        console.log("> Inserting ", data)
-        let col = getDataCollection(db);
-        col.insert(data, (err, result) => {
-            if (err) reject(err)
-            else (resolve(result))
-        })
-    })
+  console.log("> Inserting ", data)
+  let col = getDataCollection(db)
+  return col.insert(data)
 }
 
 function getAllData(db) {
-    return new Promise((resolve, reject) => {
-        console.log("> Getting all data.")
-        let col = getDataCollection(db);
-        col.find({}).toArray((err, result) => {
-            if (err) reject(err)
-            else resolve(result)
-        })
-    })
+  console.log("> Getting all data.")
+  let col = getDataCollection(db)
+  return col.find({}).toArray()
 }
 
 function insertRandomData(db) {
